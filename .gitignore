@@ -1,0 +1,149 @@
+*.iml
+.kotlin
+.gradle
+**/build/
+xcuserdata
+!src/**/build/
+local.properties
+.idea
+.DS_Store
+captures
+.externalNativeBuild
+.cxx
+*.xcodeproj/*
+!*.xcodeproj/project.pbxproj
+!*.xcodeproj/xcshareddata/
+!*.xcodeproj/project.xcworkspace/
+!*.xcworkspace/contents.xcworkspacedata
+**/xcshareddata/WorkspaceSettings.xcsettings
+node_modules/
+
+
+
+
+
+### Gradle ###
+.gradle/
+build/
+!gradle-wrapper.jar
+**/out/
+gradle-app.setting
+
+### Local environment ###
+.env
+*.env
+
+### IntelliJ / Android Studio ###
+.idea/
+*.iws
+*.ipr
+
+# JetBrains caches
+.idea/**/workspace.xml
+.idea/**/tasks.xml
+.idea/**/gradle.xml
+.idea/**/dictionaries
+.idea/**/shelf
+.idea/**/libraries
+
+# JetBrains plugin files
+.idea/**/assetWizardSettings.xml
+.idea/**/androidTestResults
+.idea/**/deploymentTargetDropDown.xml
+
+### Kotlin/Native ###
+*.klib
+*.kexe
+*.dylib
+*.so
+*.dll
+kotlin/bin/
+kotlin/cache/
+
+### Android ###
+# APK / AAB
+*.apk
+*.ap_
+*.aab
+
+# Android build/variant folders
+captures/
+outputs/
+navigation.json
+*.hprof
+
+# Generated
+**/generated/
+**/intermediates/
+**/tmp/
+
+# Keystore
+*.jks
+*.keystore
+*.keystore.properties
+
+### iOS (Xcode) ###
+# Build artifacts
+DerivedData/
+*.ipa
+
+# Xcode user data
+*.xcuserdata/
+*.xcuserstate
+project.xcworkspace/
+
+# Swift Packages
+.swiftpm/
+Package.resolved
+
+# CocoaPods
+Pods/
+Podfile.lock
+
+### Web (Compose for Web) ###
+# npm / yarn / pnpm
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Vite / webpack / output directories
+dist/
+build/distributions/
+composeApp/build/js/
+
+### Logs ###
+*.log
+
+### OS-specific ###
+# macOS
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Linux
+*~
+
+*.exe
+kotlinc/
+
+#######################################
+# Desktop App Builds (Compose Desktop)
+#######################################
+# macOS
+*.app
+*.dmg
+# Linux
+*.deb
+*.AppImage
+# Windows
+*.msi
+*.zip
+
+# Desktop build outputs
+desktopApp/build/
+
+xcuserdata/
+xcshareddata/
+
