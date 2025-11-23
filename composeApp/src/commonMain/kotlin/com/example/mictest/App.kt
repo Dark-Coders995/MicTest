@@ -1,14 +1,20 @@
 package com.example.mictest
 
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
+import androidx.room.RoomDatabase
+import com.example.mictest.data.local.TaskDatabase
 import com.example.mictest.presentation.AppTheme
 import com.example.mictest.presentation.navigation.AppNavigation
-import org.jetbrains.compose.ui.tooling.preview.Preview
 
 @Composable
-@Preview
-fun App() {
+fun App(
+    databaseBuilder: RoomDatabase.Builder<TaskDatabase>
+) {
+    val database = remember { databaseBuilder.build() }
+    val taskDao = remember { database.taskDao() }
+
     AppTheme {
-        AppNavigation()
+        AppNavigation(taskDao)
     }
 }
