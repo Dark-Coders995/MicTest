@@ -31,7 +31,9 @@ import org.jetbrains.compose.ui.tooling.preview.Preview
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 
-fun StartScreen() {
+fun StartScreen(
+    onNext: () -> Unit
+) {
     Scaffold(
         topBar = {
             TopAppBar(
@@ -43,7 +45,7 @@ fun StartScreen() {
         },
         bottomBar = {
             Button(
-                onClick = {},
+                onClick = onNext,
                 modifier = Modifier
                     .fillMaxWidth()
             ) {
@@ -92,7 +94,9 @@ fun StartScreen() {
 @Composable
 fun GreetingPreview() {
     AppTheme {
-        StartScreen()
+        StartScreen(
+            onNext = {}
+        )
     }
 }
 
