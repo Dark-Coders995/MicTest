@@ -1,35 +1,69 @@
-This is a Kotlin Multiplatform project targeting Android, iOS.
+# Humanness Voice & Environment Assessment App
 
-* [/composeApp](./composeApp/src) is for code that will be shared across your Compose Multiplatform applications.
-  It contains several subfolders:
-  - [commonMain](./composeApp/src/commonMain/kotlin) is for code that’s common for all targets.
-  - Other folders are for Kotlin code that will be compiled for only the platform indicated in the folder name.
-    For example, if you want to use Apple’s CoreCrypto for the iOS part of your Kotlin app,
-    the [iosMain](./composeApp/src/iosMain/kotlin) folder would be the right place for such calls.
-    Similarly, if you want to edit the Desktop (JVM) specific part, the [jvmMain](./composeApp/src/jvmMain/kotlin)
-    folder is the appropriate location.
-
-* [/iosApp](./iosApp/iosApp) contains iOS applications. Even if you’re sharing your UI with Compose Multiplatform,
-  you need this entry point for your iOS app. This is also where you should add SwiftUI code for your project.
-
-### Build and Run Android Application
-
-To build and run the development version of the Android app, use the run configuration from the run widget
-in your IDE’s toolbar or build it directly from the terminal:
-- on macOS/Linux
-  ```shell
-  ./gradlew :composeApp:assembleDebug
-  ```
-- on Windows
-  ```shell
-  .\gradlew.bat :composeApp:assembleDebug
-  ```
-
-### Build and Run iOS Application
-
-To build and run the development version of the iOS app, use the run configuration from the run widget
-in your IDE’s toolbar or open the [/iosApp](./iosApp) directory in Xcode and run it from there.
+An Android application built as part of the **Humanness by Josh Talks – Android Intern Assignment
+**.  
+The app evaluates a user's **voice, environment noise, and description skills** through multiple
+guided tasks.
 
 ---
 
-Learn more about [Kotlin Multiplatform](https://www.jetbrains.com/help/kotlin-multiplatform-dev/get-started.html)…
+## 📱 Features
+
+### 1. Noise Test (Ambient Environment Check)
+
+- First screen the user sees.
+- Records a short sample of ambient sound using the microphone.
+- Calculates an approximate **average noise level in dB** (decibels).
+- If **average noise < 45 dB → “Good to proceed”** and user can move to task screen.
+- If **average noise ≥ 45 dB → asks user to move to a quieter place** and retest.
+
+### 2. Text Reading Task
+
+- Fetches a **random quote** from DummyJSON:
+    - `https://dummyjson.com/products`
+- Shows the quote and author on screen.
+- User must **long-press / hold the mic button** to record their reading.
+- Validates that the recording duration is between **10–20 seconds**.
+- User must tick self-checks:
+    - ✅ No background noise
+    - ✅ Pronunciation is clear
+    - ✅ No mistakes while reading
+
+### 3. Image Description Task
+
+- Fetches a **random product** from DummyJSON:
+    - `https://dummyjson.com/products`
+- Uses **product image, title, and description**:
+    - Shows image from `images[0]` or falls back to `thumbnail`.
+- User looks at the image and **describes what they see**.
+- Long-press recording (10–20 seconds) with self-checks:
+    - ✅ No background noise
+    - ✅ Clearly described main details
+    - ✅ No mistakes / repeats
+
+### 4. Photo Capture Task
+
+- Opens device **camera** using `TakePicturePreview`.
+- Captures a photo and shows it in the UI.
+- User can optionally add a **short text description**.
+- User records an audio description (10–20 seconds) of the captured photo.
+- Saves:
+    - Photo (local file path)
+    - Audio file path
+    - Optional text description
+    - Duration & timestamp
+
+### 5. Task History with Audio Player
+
+- Shows **all completed tasks** (noise test, text reading, image description, photo capture).
+- Each item shows:
+    - Task type
+    - Text / description
+    - Image (if any)
+    - Timestamp
+- Includes a **mini audio player** for each recording:
+    - ▶ / ⏸ play–pause
+    - Slider like a media player (progress bar)
+    - Shows **elapsed time** and **total duration**.
+
+---
